@@ -8,7 +8,7 @@ export class DenoSubhostingClient {
 
   constructor() {
     this.API = "https://api.deno.com/v1";
-    this.accessToken = process.env.DEPLOY_ACCESS_TOKEN
+    this.accessToken = process.env.DEPLOY_ACCESS_TOKEN;
     this.orgId = process.env.DEPLOY_ORG_ID;
 
     if (!this.accessToken) {

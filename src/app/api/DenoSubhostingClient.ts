@@ -1,5 +1,3 @@
-const env = process.env;
-
 // This client class captures all the API calls we need to make to the Deno Subhosting API
 // It wraps the fetch API to keep the noise out of the commands
 export class DenoSubhostingClient {
@@ -10,9 +8,8 @@ export class DenoSubhostingClient {
 
   constructor() {
     this.API = "https://api.deno.com/v1";
-    this.accessToken = env["DEPLOY_ACCESS_TOKEN"] ||
-      Deno.env.get("DEPLOY_ACCESS_TOKEN");
-    this.orgId = env["DEPLOY_ORG_ID"] || Deno.env.get("DEPLOY_ORG_ID");
+    this.accessToken = process.env.DEPLOY_ACCESS_TOKEN
+    this.orgId = process.env.DEPLOY_ORG_ID;
 
     if (!this.accessToken) {
       throw new Error("env DEPLOY_ACCESS_TOKEN is required");
